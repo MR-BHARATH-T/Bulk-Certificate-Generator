@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+.venv
+
+# Node
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database / Storage
+*.db
+*.sqlite3
+backend/storage/
+backend/alembic.ini
+
+# OS
+.DS_Store
+Thumbs.db
