@@ -19,13 +19,42 @@ export const api = {
     const response = await apiClient.get(`/jobs/${jobId}`);
     return response.data;
   },
+
+  listJobs: async (limit = 20) => {
+    const response = await apiClient.get('/jobs/', { params: { limit } });
+    return response.data;
+  },
+
+  listCertificates: async (query = '', limit = 50) => {
+    const response = await apiClient.get('/certificates/', { params: { query: query || undefined, limit } });
+    return response.data;
+  },
   
   getCertificateLink: async (certificateId) => {
     const response = await apiClient.get(`/certificates/${certificateId}`);
     return response.data;
   },
+
+  getCertificateViewUrl: (certificateId) => {
+    return `${API_URL}/certificates/${certificateId}/view`;
+  },
   
-  getJobDownloadUrl: (jobId) => {
-    return `${API_URL}/jobs/${jobId}/download`;
+  getCertificateDownloadUrl: (certificateId, format = 'pdf') => {
+    return `${API_URL}/certificates/${certificateId}/download?format=${format}`;
+  },
+  
+  getJobDownloadUrl: (jobId, format = 'pdf') => {
+    return `${API_URL}/jobs/${jobId}/download?format=${format}`;
+  },
+
+  deleteJob: async (jobId) => {
+    const response = await apiClient.delete(`/jobs/${jobId}`);
+    return response.data;
+  },
+
+  deleteCertificate: async (certificateId) => {
+    const response = await apiClient.delete(`/certificates/${certificateId}`);
+    return response.data;
   }
 };
+

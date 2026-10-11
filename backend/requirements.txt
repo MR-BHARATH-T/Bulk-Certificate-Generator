@@ -12,3 +12,5 @@ pytest
 pytest-asyncio
 python-multipart
 supabase
+pypdfium2
+Pillow

@@ -21,6 +21,13 @@ class Job(Base):
     organization_name = Column(String(255), nullable=False)
     issue_date = Column(DateTime, nullable=False)
     description = Column(Text, nullable=True)
+    presentation_text = Column(String(500), nullable=True)
+    certificate_title = Column(String(255), default="Certificate of Completion", nullable=True)
+    theme_key = Column(String(100), default="royal_gold", nullable=True)
+    border_style = Column(String(100), default="classic_prestige", nullable=True)
+    signatory_name = Column(String(255), default="Dr. Arthur Pendelton", nullable=True)
+    signatory_title = Column(String(255), default="Dean of Computer Engineering", nullable=True)
+    logo_url = Column(Text, nullable=True)
     status = Column(Enum(JobStatus), default=JobStatus.PENDING, nullable=False, index=True)
     idempotency_key = Column(String(255), nullable=True, unique=True, index=True)
     

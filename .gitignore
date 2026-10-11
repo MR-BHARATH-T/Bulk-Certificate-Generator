@@ -4,8 +4,10 @@ __pycache__/
 *$py.class
 venv/
 env/
-.env
 .venv
+.pytest_cache/
+*.log
+.coverage
 
 # Node
 node_modules/

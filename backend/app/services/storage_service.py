@@ -32,9 +32,8 @@ class StorageService:
         Returns a local download URL.
         (Since we are running locally, we just point to our own API endpoint).
         """
-        # Path is in format job_id/recipient_id.pdf
-        # We can route this to a local download endpoint
-        return f"{request_base_url}/api/v1/certificates/download/{path}"
+        clean_path = path.replace("\\", "/")
+        return f"{request_base_url}/api/v1/certificates/download/{clean_path}"
             
     def download_file(self, path: str) -> bytes:
         """
